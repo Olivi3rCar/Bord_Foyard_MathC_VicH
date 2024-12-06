@@ -52,9 +52,8 @@ def compose_equipe() -> list:
     return team
 
 """Next, the challenges_menu that will print the available challenges and ask the player to choose one."""
-def challenges_menu(available_challenges):
+def challenges_menu(available_challenges)->int:
     """
-
     :param available_challenges: dict of the non-completed challenges
     :return: choice: the challenge the user chose
     """
@@ -62,16 +61,15 @@ def challenges_menu(available_challenges):
     for i in available_challenges:
         print("{}. - {}".format(i,available_challenges[i]))
 
-
     choice = int(input('Enter the number of the chosen challenge: '))
     del available_challenges[choice]
     return choice
 
 
-def choose_player(team):
+def choose_player(team)->int:
     """
-    :param team: using the dict to display the players and their details
-    :return: chosen_one :the choosen player
+    Using the dict to display the players and their details
+    :return: chosen_one :the chosen player to partake in the challenge
     """
 
     print("Here are the players in your team: ")
@@ -80,3 +78,11 @@ def choose_player(team):
     chosen_one = int(input("Enter the number of the chosen player: "))
 
     return chosen_one
+
+def choose_difficulty()->int:
+    """
+    Asks the user what difficulty they want to choose
+    :return: Integer corresponding to chosen difficulty
+    """
+    diff=int(input("Choose a difficulty\n 1-Easy\n 2-Medium\n 3-Hard"))
+    return diff
