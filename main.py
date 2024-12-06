@@ -1,3 +1,4 @@
+from functions import *
 
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    print('Bienvenue à Bord Foyard!')
