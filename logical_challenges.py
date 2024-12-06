@@ -1,0 +1,1 @@
+"""file containing the functions regarding the logical challenges"""
