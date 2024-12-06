@@ -1,7 +1,26 @@
 """file containing utility functions"""
 
+def lowercase(s : str) -> str :
+    """
+    Returns the lowercase version of a string
+    :param s: string to be lowercased
+    :return: lowercase version of the string
+    """
+    # instantiation of string to be returned
+    ns = ""
+    # iteration over s
+    for c in s:
+        # test of position of current char relative to uppercase bounds (A & Z)
+        if ord('A') <= ord(c) <= ord('Z'):
+            # concatenation of lowercase-converted current char to string
+            ns += chr(ord(c) + (ord('a') - ord('A')))
+        else :
+            # concatenation of current car to string
+            ns += c
+    return ns
+
 def introduction():
-    print("Welcome to Bord Foyart.\n Your goal is to collect three keys to partake in the final challenge and have a chance to unlock the treasure room.")
+    print("Welcome to Bord Foyard.\n Your goal is to collect three keys to partake in the final challenge and have a chance to unlock the treasure room.")
 
 
 def compose_equipe() -> list:
