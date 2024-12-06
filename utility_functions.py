@@ -31,3 +31,19 @@ def compose_equipe() -> list:
     if (team[0]["role"]!="Leader") and (team[1]["role"]!="Leader") and (team[2]["role"]!="Leader"):
         team[0]["role"]="Leader"
     return team
+
+"""Next, the challenges_menu that will print the available challenges and ask the player to choose one."""
+def challenges_menu(available_challenges):
+    """
+
+    :param available_challenges: dict of the non-completed challenges
+    :return: choice: the challenge the user chose
+    """
+    print("Here are the available challenges:")
+    for i in available_challenges:
+        print("{}. - {}".format(i,available_challenges[i]))
+
+
+    choice = int(input('Enter the number of the chosen challenge : '))
+    del available_challenges[choice]
+    return choice
