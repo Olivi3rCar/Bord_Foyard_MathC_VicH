@@ -52,16 +52,20 @@ def pere_fouras_riddles(difficulty : int) -> bool :
     while attempts > 0 :
         # attempt to answer
         answer = input("Answer, if you dare... ")
+        # intense sound effect is played
         playsound(f"soundeffects/intense{6 - attempts}.wav")
         if lowercase(answer) == lowercase(r['answer']) :
+            # case for correct answer : return true
             print("Correct! You snatched the key from Fère Pouras!")
             sleep(2)
             return True
         elif attempts > 1 :
+            # case for incorrect answer and more than 1 attempts left
             attempts -= 1
             print(f"Incorrect answer, try again... You have {attempts} attempts left!")
             sleep(2)
         else :
+            # case for incorrect answer and no attempts left
             print("Incorrect, you lost! the correct answer was : " + r['answer'])
             sleep(2)
             return False
