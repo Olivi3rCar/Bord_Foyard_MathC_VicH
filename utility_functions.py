@@ -63,6 +63,20 @@ def challenges_menu(available_challenges):
         print("{}. - {}".format(i,available_challenges[i]))
 
 
-    choice = int(input('Enter the number of the chosen challenge : '))
+    choice = int(input('Enter the number of the chosen challenge: '))
     del available_challenges[choice]
     return choice
+
+
+def choose_player(team):
+    """
+    :param team: using the dict to display the players and their details
+    :return: chosen_one :the choosen player
+    """
+
+    print("Here are the players in your team: ")
+    for i in team:
+        print("{}. {} ({}) - {}".format(i,team[i]["name"], team[i]["profession"], team[i]["role"]))
+    chosen_one = int(input("Enter the number of the chosen player: "))
+
+    return chosen_one
