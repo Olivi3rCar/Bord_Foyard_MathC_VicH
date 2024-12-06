@@ -33,7 +33,8 @@ def display_question(q : str) -> None :
 def pere_fouras_riddles(difficulty : int) -> bool :
     """
     Simulates an encounter with Fère Pouras :\n
-    Begin a Riddle then allow the user to try 3 times
+    Begin a Riddle then allow the user to try a number of times\n
+    Number of times dependent of difficulty level parameter
     :param difficulty: difficulty level (1 to 3)
     :return: Boolean that states if the riddle was won
     """
