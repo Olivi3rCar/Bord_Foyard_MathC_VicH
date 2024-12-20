@@ -26,11 +26,11 @@ def player_removal(n : int) -> int :
     :return: number of sticks on board after removal
     """
     r = -1
-    while not 1 <= r <= 3 & r < n :
-        r = int(input(f"How many sticks do you want to remove? ({'-'.join([str(i) for i in range(1, minimum(4, n+1))])}) "))
+    while not 1 <= r <= 3 & r < n : r = int(input(f"How many sticks \
+do you want to remove? ({'-'.join([str(i) for i in range(1, minimum(4, n+1))])}) "))
     # play adequate sound effect
     playsound(f"soundeffects/sticks{r}.wav")
-    print(r, "sticks removed")
+    print(r, "sticks removed", end="")
     return n - r
 
 def master_removal(n : int, difficulty : int) -> int :
@@ -58,12 +58,29 @@ def master_removal(n : int, difficulty : int) -> int :
                     s += [1, 1, 1, 0, 0, 0, 0, 0][rd.randint(difficulty-1,7)]
     # play adequate sound effect
     playsound(f"soundeffects/sticks{s}.wav")
-    print(s, "sticks removed")
+    print(s, "sticks removed", end="")
     return n - s
 
 def nim_game(difficulty) :
     p_turn, sticks = True, 20
-    while sticks >=
+    while sticks > 1 :
+        # The player and the master alternatively return sticks
+        # until only 1 remains
+        display_sticks(sticks)
+        if p_turn :
+            sticks = player_removal(sticks)
+            print(" by yourself")
+        else :
+            sticks = master_removal(sticks, difficulty)
+            print(" by the master")
+        p_turn = not p_turn
+    display_sticks(sticks)
+    # if it is the player's turn when there only remains 1 stick, they lose
+    if p_turn :
+        print("The master has bested you...")
+        return False
+    print("You have bested the master!!!")
+    return True
 
 # Tests
 
@@ -77,3 +94,5 @@ def nim_game(difficulty) :
 #     display_sticks(n)
 #     n = master_removal(n, 2)
 # display_sticks(n)
+
+# print(nim_game(2))
