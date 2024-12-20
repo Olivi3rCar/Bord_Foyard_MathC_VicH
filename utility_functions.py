@@ -86,7 +86,3 @@ def choose_difficulty()->int:
     """
     diff=int(input("1-Easy\n 2-Medium\n 3-Hard\nEnter the number of the chosen difficulty : "))
     return diff
-
-def minimum(a, b) :
-    if a < b : return a
-    return b

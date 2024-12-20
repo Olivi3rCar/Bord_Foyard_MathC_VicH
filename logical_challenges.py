@@ -4,9 +4,11 @@
 import random as rd
 from time import sleep
 from playsound import playsound
-from utility_functions import minimum
-
 """functions"""
+
+def minimum(a, b) :
+    if a < b : return a
+    return b
 
 """GAME OF NIM"""
 
