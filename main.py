@@ -1,6 +1,9 @@
-from math_challenges import nearest_prime
 from utility_functions import *
-from math_challenges import *
+from logical_challenges import nim_game, battleship_game
+from math_challenges import (math_challenge_factorial, solve_linear_equation,
+                             math_challenge_prime, math_roulette_challenge)
+from pere_fouras_challenge import pere_fouras_riddles
+import random as rd
 
 if __name__ == '__main__':
 
@@ -10,9 +13,13 @@ if __name__ == '__main__':
 
     diff=choose_difficulty()
 
-    math_challenges_list=[math_challenge_factorial,solve_linear_equation,math_challenge_prime,math_roulette_challenge]
+    math_list=[math_challenge_factorial,solve_linear_equation,math_challenge_prime,math_roulette_challenge]
+    logical_list = [nim_game, battleship_game]
+    perefouras_list = [pere_fouras_riddles]
 
-    challenge=math_challenge(math_challenges_list)
+    all_challenges = [math_list, logical_list, perefouras_list]
+
+    challenge = rd.choice(rd.choice(all_challenges))
     if challenge(diff):
         print("bravo")
 

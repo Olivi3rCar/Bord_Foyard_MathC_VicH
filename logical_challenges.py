@@ -7,7 +7,12 @@ from playsound import playsound
 
 """functions"""
 
-def minimum(a, b) :
+def minimum(a : int, b : int) -> bool :
+    """
+    :param a: int
+    :param b: int
+    :return: minimum between a and b
+    """
     if a < b : return a
     return b
 
@@ -64,7 +69,12 @@ def master_removal(n : int, difficulty : int) -> int :
     print(s, "sticks removed", end="")
     return n - s
 
-def nim_game(difficulty) :
+def nim_game(difficulty : int) -> bool :
+    """
+    Plays the game of nim
+    :param difficulty: int representing the difficulty level
+    :return: bool representing if the game has been won by the player
+    """
     p_turn, sticks = True, 20
     while sticks > 1 :
         # The player and the master alternatively return sticks
@@ -99,3 +109,13 @@ def nim_game(difficulty) :
 # display_sticks(n)
 
 # print(nim_game(2))
+
+"""BATTLESHIP"""
+
+def battleship_game(difficutly :  int) -> bool :
+    """
+    Plays the battleship game
+    :param difficutly: int representing the difficulty level
+    :return: bool representing if the game has been won by the player
+    """
+    return ...
