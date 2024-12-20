@@ -1,14 +1,14 @@
+
 """file containing the functions regarding the math challenges"""
+
+
 import random
 
-from utility_functions import choose_difficulty
-
-
-def math_challenge():
+def math_challenge(math_challenges_list):
     """
-    :return:challenge:returns the randomly chosen challenge
+    :return:challenge:returns and executes the function relative to the randomly chosen challenge
     """
-    return random.randint(1, 4)
+    return math_challenges_list[random.randint(0, len(math_challenges_list) - 1)]
 
 def factorial(n):
     """
@@ -19,18 +19,61 @@ def factorial(n):
         n*=i
     return n
 
-def math_challenge_factorial(team,chosen_one):
-    diff=choose_difficulty()
-    if diff==1:
-        n=random.randint(3,5)
-    elif diff==2:
-        n=random.randint(6,9)
+def math_challenge_factorial(diff):
+    
+    n=random.randint(3,5)*diff
+    #
+    #
+    #
+    if int(input("What is the factorial of {} ? ".format(n))) == factorial(n):
+        return True
     else:
-        n=random.randint(10,12)
-    if int(input("What is the factorial of {} ? ".format(n))):
-        print("Correct ! You win a key !")
-        team[chosen_one]["keys_won"] += 1
+        return False
+
+def solve_linear_equation(diff):
+    
+    a=random.randint(1,8)*diff
+    b=random.randint(4,12)*diff
+
+    if int(input("Solve this equation: {}x+{}=0\nx = ".format(a,b)))==-b/a:
+        return True
     else:
-        print("Wrong ! The key disappears.")
+        return False
 
 
+def is_prime(n):
+    if n<=1:
+        return False
+    for i in range(2,n):
+        if n % i == 0:
+            return False
+    return True
+
+def nearest_prime(n):
+    k=n
+    while True:
+        if is_prime(k):
+            return k
+        k=k+1
+
+def math_challenge_prime(diff):
+    n=random.randint(2,6)^diff
+    if int(input("What is the first prime number, greater than {}? ".format(n))) == nearest_prime(n):
+        return True
+
+
+def math_roulette_challenge(diff):
+    a,b,c,d,e=random.randint(1,7)*diff
+    l=['add','sub','mult']
+    l_index=random.randint(0,len(l)-1)
+    print("Numbers on the roulette: [",a,b,c,d,e,"]")
+    if l[l_index]=='add':
+        if int(input("What is the sum of the numbers on the roulette?\nYour answer : "))==a+b+c+d+e:
+            return True
+    elif l[l_index]=='sub':
+        if int(input("What is the difference of the numbers on the roulette?\nYour answer : "))==a-b-c-d-e:
+            return True
+    else:
+        if int(input("What is the product of the numbers on the roulette?\nYour answer : "))==a*b*c*d*e:
+            return True
+    return False

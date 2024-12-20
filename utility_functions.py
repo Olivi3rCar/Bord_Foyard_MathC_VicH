@@ -57,7 +57,7 @@ def challenges_menu(available_challenges)->int:
     :param available_challenges: dict of the non-completed challenges
     :return: choice: the challenge the user chose
     """
-    print("Here are the available challenges:")
+    print("Here are the available challenges: ")
     for i in available_challenges:
         print("{}. - {}".format(i,available_challenges[i]))
 
@@ -84,5 +84,5 @@ def choose_difficulty()->int:
     Asks the user what difficulty they want to choose
     :return: Integer corresponding to chosen difficulty
     """
-    diff=int(input("Choose a difficulty\n 1-Easy\n 2-Medium\n 3-Hard"))
+    diff=int(input("1-Easy\n 2-Medium\n 3-Hard\nEnter the number of the chosen difficulty : "))
     return diff
