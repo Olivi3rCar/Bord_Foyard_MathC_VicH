@@ -15,3 +15,5 @@ if __name__ == '__main__':
     challenge=math_challenge(math_challenges_list)
     if challenge(diff):
         print("bravo")
+
+    """VICTOR PLEASE IMPLEMENT WIN AND LOSS SOUND EFFECTS IN MAIN PLZZZZ"""
