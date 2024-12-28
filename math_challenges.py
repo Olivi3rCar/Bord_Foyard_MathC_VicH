@@ -6,7 +6,7 @@ import random
 
 def math_challenge(math_challenges_list):
     """
-    :return:challenge:returns and executes the function relative to the randomly chosen challenge
+    :return:challenge: returns and executes the function relative to the randomly chosen challenge
     """
     return math_challenges_list[random.randint(0, len(math_challenges_list) - 1)]
 
