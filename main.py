@@ -7,6 +7,7 @@ from pere_fouras_challenge import pere_fouras_riddles
 from chance_challenges import (shell_game,roll_dice_game)
 import random as rd
 import final_challenge
+from playsound import playsound
 
 def game():
     introduction()
@@ -36,21 +37,29 @@ def game():
             if all_challenges[1][log_chall_choice](diff):
                 keys += 1
                 team[player]["keys_wons"] += 1
-                print(team)
+                print('Congrats, you win a key!')
+                playsound(f"soundeffects/gamewon.wav")
             else:
-                """Play sound ma gueule"""
-            print(team)
+                playsound(f"soundeffects/gameloss.wav")
+                print("Too bad! You lose, the key disappears before your eyes!")
+                sleep(2)
         else:
             if rd.choice(all_challenges[choosen_challenge-1])(diff):
                 keys+=1
                 team[player]["keys_wons"]+=1
-                print(team)
+                print('Congrats, you win a key!')
+                playsound(f"soundeffects/gamewon.wav")
+                sleep(2)
             else:
-                """Play sound ma gueule"""
-                print(team)
+                playsound(f"soundeffects/gameloss.wav")
+                print("Too bad! You lose, the key disappears before your eyes!\n")
+                sleep(2)
+        if keys==1:
+            print("You have 1 key!\n")
+        else:
+            print("You have {} keys!\n".format(keys))
     final_challenge.treasure_room(diff)
 
-    """VICTOR PLEASE IMPLEMENT WIN AND LOSS SOUND EFFECTS IN MAIN PLZZZZ"""
 
 
 
@@ -58,4 +67,3 @@ def game():
 if __name__ == '__main__':
 
     game()
-    """VICTOR PLEASE IMPLEMENT WIN AND LOSS SOUND EFFECTS IN MAIN PLZZZZ"""

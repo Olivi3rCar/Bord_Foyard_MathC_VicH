@@ -32,13 +32,36 @@ def math_challenge_factorial(diff):
 
 def solve_linear_equation(diff):
     
-    a=random.randint(1,8)*diff
-    b=random.randint(4,12)*diff
+    a=random.randint(1,8)+diff
+    b=random.randint(4,12)+diff
+    if len(str(-b / a).split(".")[1]) > 3:
+        if a < b:
+            k=a
+        else:
+            k=b
 
-    if int(input("Solve this equation: {}x+{}=0\nx = ".format(a,b)))==-b/a:
-        return True
+        while k !=1 :
+            if a%k==0 and b%k==0:
+                a,b=a/k,b/k
+                if a < b:
+                    k = a
+                else:
+                    k = b
+            else:
+                k=k-1
+        print("-{}/{}".format(b,a))
+        if str(input("Solve this equation: {}x+{}=0\nx = ".format(a, b))) == "-{}/{}".format(int(b),int(a)):
+            return True
+
     else:
-        return False
+        if float(input("Solve this equation: {}x+{}=0\nx = ".format(a, b))) == -b / a:
+            return True
+    return False
+
+    # if int(input("Solve this equation: {}x+{}=0\nx = ".format(a,b)))==-b/a:
+    #     return True
+    # else:
+    #     return False
 
 
 def is_prime(n):
@@ -57,7 +80,7 @@ def nearest_prime(n):
         k=k+1
 
 def math_challenge_prime(diff):
-    n=random.randint(2,6)^diff
+    n=random.randrange(1,7)^diff
     if int(input("What is the first prime number, greater than {}? ".format(n))) == nearest_prime(n):
         return True
 
@@ -66,7 +89,7 @@ def math_roulette_challenge(diff):
     a,b,c,d,e=random.randint(1,7)*diff,random.randint(1,7)*diff,random.randint(1,7)*diff,random.randint(1,7)*diff,random.randint(1,7)*diff
     l=['add','sub','mult']
     l_index=random.randint(0,len(l)-1)
-    print("Numbers on the roulette: [",a,b,c,d,e,"]")
+    print("Numbers on the roulette: [",a,',',b,',',c,',',d,',',e,"]")
     if l[l_index]=='add':
         if int(input("What is the sum of the numbers on the roulette?\nYour answer : "))==a+b+c+d+e:
             return True

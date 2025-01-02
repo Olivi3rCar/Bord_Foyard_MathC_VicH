@@ -51,8 +51,6 @@ def treasure_room(diff) -> bool:
         answer=str(input("What is the secret word ? "))
 
         if uppercase(answer) == clues_list[1]:
-            print("Correct! You win the treasure !")
             return True
 
-    print("Wrong, you lose !")
     return False
