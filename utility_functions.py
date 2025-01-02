@@ -1,4 +1,5 @@
 """file containing utility functions"""
+from time import sleep
 
 def lowercase(s : str) -> str :
     """
@@ -20,34 +21,49 @@ def lowercase(s : str) -> str :
     return ns
 
 def introduction():
-    print("Welcome to Bord Foyard.\n Your goal is to collect three keys to partake in the final challenge and have a chance to unlock the treasure room.")
+    print("Welcome to Bord Foyard !\n")
+    sleep(1)
+    print("In this magical and mysterious castle, \
+you will face numerous challenges in an attempt to steal Fère Pouras' gold\n")
+    sleep(3)
+    print("But before entering the Fère's lair, you will have to choose a difficulty level\
+and compose a team of 3 players.")
 
 
 def compose_equipe() -> list:
     """
-
     :return: team_list, including players name, professions and whether they are the leader or not
     """
 
     """Initialisation of the team list that is going to contain all of the player's info"""
     team=[]
-    team_size=int(input('\n \n Please enter the number of players in your team (max 3) : '))
+    team_size=int(input('\n\nPlease enter the number of players in your team (max 3) : '))
     while not(1<=team_size<=3):
-        team_size=int(input("\n The size entered is not valid.\n \n Please enter the number of players in your team (max 3) : "))
+        team_size=int(input("\nThe size entered is not valid.\n\n\
+Please enter the number of players in your team (max 3) : "))
 
     """Filling up the team list with inputs coming from the user"""
     cardinals=["first", "second", "third"]
+    v = False # variable used to keep track if leader role has already been assigned
     for i in range(team_size):
         team.append({})
-        team[i]["name"]=str(input("Enter the {} player's name : ".format(cardinals[i])))
-        team[i]["profession"]=str(input("Enter the {} player's profession : ".format(cardinals[i])))
-        team[i]["role"]=str(input("Enter the role of the player (Leader or Member) : "))
-        while team[i]["role"]!="Leader" or team[i]["role"]!="Member":
-            team[i]["role"]=str(input("INVALID INPUT\nEnter the role of the player (Leader or Member) : "))
+        team[i]["name"]=str(input(f"Enter the {cardinals[i]} player's name : "))
+        team[i]["profession"]=str(input(f"Enter the {cardinals[i]} player's profession : "))
+        if not v :
+            # if we don't have a leader already
+            team[i]["role"]=str(input("Enter the role of the player (Leader or Member) : "))
+            while team[i]["role"] != "Leader" and team[i]["role"] != "Member":
+                team[i]["role"]=str(input("INVALID INPUT\nEnter the role of the player (Leader or Member) : "))
+            if team[i]["role"] == "Leader":
+                # if the player is defined as leader, change state of v
+                v = True
+        else :
+            # if we already have a leader, set current player as member
+            team[i]["role"] = "Member"
         team[0]["keys_wons"]=0
 
     """When there is no leader, the first player will be selected to be one"""
-    if (team[0]["role"]!="Leader") and (team[1]["role"]!="Leader") and (team[2]["role"]!="Leader"):
+    if not v :
         team[0]["role"]="Leader"
     return team
 
@@ -67,23 +83,27 @@ def challenges_menu(available_challenges)->int:
     return choice
 
 
-def choose_player(team)->int:
+def choose_player(team : list)->int:
     """
-    Using the dict to display the players and their details
-    :return: chosen_one :the chosen player to partake in the challenge
+    Using the list to display the players and their details
+    :return: chosen_one :the index of chosen player to partake in the challenge
     """
 
     print("Here are the players in your team: ")
-    for i in team:
-        print("{}. {} ({}) - {}".format(i,team[i]["name"], team[i]["profession"], team[i]["role"]))
-    chosen_one = int(input("Enter the number of the chosen player: "))
+    for i in range(len(team)):
+        print("{}. {} ({}) - {}".format(i+1,team[i]["name"], team[i]["profession"], team[i]["role"]))
+    chosen_one = -1
+    while not chosen_one - 1 in range(len(team)):
+        chosen_one = int(input("Enter the number of the chosen player: "))
 
-    return chosen_one
+    return chosen_one - 1
 
 def choose_difficulty()->int:
     """
     Asks the user what difficulty they want to choose
     :return: Integer corresponding to chosen difficulty
     """
-    diff=int(input("1-Easy\n2-Standard\n3-Hard\nEnter the number of the chosen difficulty : "))
+    diff = -1
+    while not 1 <= diff <= 3 :
+        diff=int(input("1-Easy\n2-Standard\n3-Hard\n\nEnter the number of the chosen difficulty : "))
     return diff
