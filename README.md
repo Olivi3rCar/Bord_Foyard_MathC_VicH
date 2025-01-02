@@ -31,12 +31,8 @@ Fère Pouras' Lair : Bord Foyard !
 - Download the project by clicking on code → download zip on 
 [This Page](https://github.com/Olivi3rCar/Bord_Foyard_MathC_VicH)
 - Extract the ZIP file into an intent folder
-- If all modules (Time, Random, json, playsound) are not downloaded
-  - execute the 'pip install [modulename]' command in the terminal for
-time, random or json modules
-  - execute the
-'pip install playsound@git+https://github.com/taconi/playsound'
-command for playsound module
+- If all modules (Time, Random, json, playsound) are not downloaded :
+  - execute the requirements.sh file present in the folder in GIT
 
 # How to use :
 - Launch the main.py file in the terminal
