@@ -37,25 +37,39 @@ def compose_equipe() -> list:
 
     """Filling up the team list with inputs coming from the user"""
     cardinals=["first", "second", "third"]
+
+    """Initializing the leader check"""
+    leader_in_team=False
+
     for i in range(team_size):
         team.append({})
         team[i]["name"]=str(input("Enter the {} player's name : ".format(cardinals[i])))
         team[i]["profession"]=str(input("Enter the {} player's profession : ".format(cardinals[i])))
-        team[i]["role"]=str(input("Enter the role of the player (Leader or Member) : "))
-        while team[i]["role"]!="Leader" or team[i]["role"]!="Member":
-            team[i]["role"]=str(input("INVALID INPUT\nEnter the role of the player (Leader or Member) : "))
-        team[0]["keys_wons"]=0
+        if not leader_in_team:
+            team[i]["role"]=str(input("Enter the role of the player (Leader or Member) : "))
+            while team[i]["role"]!="Leader" and team[i]["role"]!="Member":
+                team[i]["role"]=str(input("INVALID INPUT\nEnter the role of the player (Leader or Member) : "))
+            if team[i]["role"]=='Leader':
+                leader_in_team=True
+        else:
+            team[i]["role"] ="Member"
+
+        team[i]["keys_wons"]=0
 
     """When there is no leader, the first player will be selected to be one"""
-    if (team[0]["role"]!="Leader") and (team[1]["role"]!="Leader") and (team[2]["role"]!="Leader"):
-        team[0]["role"]="Leader"
+    for i in range (team_size):
+        if team[i]["role"]=="Leader":
+            print(team)
+            return team
+    team[0]["role"]="Leader"
+    print(team)
     return team
 
 """Next, the challenges_menu that will print the available challenges and ask the player to choose one."""
 
 def challenges_menu(available_challenges)->int:
     """
-    :param available_challenges: dict of the non-completed challenges
+    :param available_challenges: list of the  challenges
     :return: choice: the challenge the user chose
     """
     print("Here are the available challenges: ")
@@ -63,14 +77,13 @@ def challenges_menu(available_challenges)->int:
         print("{}. - {}".format(i,available_challenges[i]))
 
     choice = int(input('Enter the number of the chosen challenge: '))
-    del available_challenges[choice]
     return choice
 
 
 def choose_player(team)->int:
     """
     Using the dict to display the players and their details
-    :return: chosen_one :the chosen player to partake in the challenge
+    :return: chosen_one :the chosen player to partake in the challenge and their information
     """
 
     print("Here are the players in your team: ")
