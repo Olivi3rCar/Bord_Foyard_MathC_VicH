@@ -63,7 +63,7 @@ def math_challenge_prime(diff):
 
 
 def math_roulette_challenge(diff):
-    a,b,c,d,e=random.randint(1,7)*diff
+    a,b,c,d,e=random.randint(1,7)*diff,random.randint(1,7)*diff,random.randint(1,7)*diff,random.randint(1,7)*diff,random.randint(1,7)*diff
     l=['add','sub','mult']
     l_index=random.randint(0,len(l)-1)
     print("Numbers on the roulette: [",a,b,c,d,e,"]")
