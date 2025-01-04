@@ -38,7 +38,7 @@ def treasure_room(diff) -> bool:
     show= choice(list(clues_dict['Fort Boyard'][year].keys()))
     clues_list=list(clues_dict['Fort Boyard'][year][show].values())
 
-    print("Here goes the final challenge !\nIn this trial, you will have to guess the secret word using the clues we will give you.")
+    print("Here goes the final challenge !\nIn this trial, you will have to guess the secret word using the clues we will give you.\n")
 
     for tries in range(5-diff):
 
@@ -52,5 +52,7 @@ def treasure_room(diff) -> bool:
 
         if uppercase(answer) == clues_list[1]:
             return True
+        else:
+            print("Wrong answer!\n")
 
     return False

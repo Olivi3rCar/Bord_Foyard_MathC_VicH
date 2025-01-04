@@ -1,5 +1,4 @@
 from utility_functions import *
-from json import load
 from logical_challenges import nim_game, battleship_game
 from math_challenges import (math_challenge_factorial, solve_linear_equation,
                              math_challenge_prime, math_roulette_challenge)
@@ -58,12 +57,21 @@ def game():
             print("You have 1 key!\n")
         else:
             print("You have {} keys!\n".format(keys))
-    final_challenge.treasure_room(diff)
+    if final_challenge.treasure_room(diff):
+        playsound(f"soundeffects/jackpot.wav")
+        print("\n\nYou won! Fère Pouras' treasure is yours!")
+        if str(input("\nEnter R to try again: ")) == "R":
+            game()
+
+    else:
+        playsound(f"soundeffects/defeat.wav")
+        print("\n\nYou lost!")
+        if str(input("\nEnter R to try again: ")) == "R":
+            game()
 
 
 
 
 
 if __name__ == '__main__':
-
     game()

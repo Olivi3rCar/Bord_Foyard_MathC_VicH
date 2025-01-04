@@ -22,8 +22,8 @@ Fère Pouras' Lair : Bord Foyard !
 
 # Technologies used
 
-- Python Programming language
-- random, time, json and playsound libraries
+- Python Programming language, as well as JSON for data storage/exploitation
+- random, time, os, json and playsound libraries
 - Pycharm and Git/GitHub for project management
 
 # Installation :
@@ -38,3 +38,8 @@ Fère Pouras' Lair : Bord Foyard !
 - Launch the main.py file in the terminal
 - Follow instructions given by the program to begin your game
 - Enjoy !
+
+### zads
+#### dqzdqzd
+##### azdsqzdsq
+###### zqdsqd
