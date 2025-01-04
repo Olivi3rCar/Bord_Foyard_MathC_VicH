@@ -56,42 +56,19 @@ Fère Pouras' Lair : Bord Foyard !
 13) The loop starts again, unless the user has 3 keys, in which case they undertake the final challenge, where they must find the secret word guarding Fère Pouras' treasure.
 14) Whether they win or lose, the player is invited to try again by pressing R, which will start the game function one more time.
 
-## Functions
-#### math_challenge(math_challenges_list)
-returns and executes the function relative to the randomly chosen math challenge, using the random library with randint
+# Logbook
+## Project chronology
+- 6/12/2024 : Project's beginning, GitHub repo setup. Implementation of Fère Pouras' riddles, as well as the utility functions.
+- 20/12/2024 : Math challenges are fully implemented, logical challenges are almost done.
+- 22/10/2024 : Logical challenges are done
+- 28/12/2024 : Chance challenges implementation
+- 2/01/2025 : Final challenge and main are implemented
+- 4/01/2025 : Documentation is finalized, project is finished
 
-###
-#### factorial(n)
-computes and returns the factorial of n, using a for loop starting from n and decreasing by 1 until the counter reaches 1
-
-###
-#### math_challenge_factorial(diff)
-computes a random number multiplied by diff and check whether the player's guess is the same as the result of the factorial of n
-
-###
-#### solve_linear_equation(diff)
-computes 2 random integer "a" and "b" and adds the difficulty number to them
-then, the function checks how many decimals b/a has
-if it has 3 or fewer decimals, the game expects a decimal answer for the equation
-if it has more than 3 decimals, the game expects a fractional answer ("-b/a")
-
-###
-#### is_prime(n)
-returns True if n is prime and False if not, we verify this using a for loop, decreasing by 1 until it reaches 1
-
-###
-#### nearest_prime(n)
-returns n's nearest prime above him, using a while loop and increasing n by 1 each time the prime check (utilising is_prime()) fails
-
-###
-#### math_challenge_prime(diff)
-computes a random n using randrange and putting it to the power of the difficulty number.
-the game then checks if the player's answer is correct using the previous function.
-
-###
-#### math_roulette_challenge(diff)
-computes 5 random numbers, then chooses at random between addition, substraction or product
-checks if the user's input is the same as the result of the calculation between the five numbers
+## Task distribution
+- Olive / Oliver3rCar : Mathias C: implemented fère pourras' riddles, logical challenges and added sound effects. Redacted half of the documentation.
+- Pandadulol : Victor H: implemented chance and math challenges as well as the utility functions and the main. Redacted the other half of the documentation.
 
 #
-# Input and error management 
+# Testing and validation
+## Test strategies
