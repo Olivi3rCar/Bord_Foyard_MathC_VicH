@@ -30,7 +30,7 @@ you will face numerous challenges in an attempt to steal Fère Pouras' gold\n")
 and compose a team of 3 players.")
 
 
-def compose_equipe() -> list:
+def compose_team() -> list:
     """
     :return: team_list, including players name, professions and whether they are the leader or not
     """
@@ -71,14 +71,18 @@ Please enter the number of players in your team (max 3) : "))
 
 def challenges_menu(available_challenges)->int:
     """
-    :param available_challenges: dict of the non-completed challenges
+    :param available_challenges: dict of the available challenges
     :return: choice: the challenge the user chose
     """
     print("\nHere are the available challenges: ")
+    #displays the available challenges, using a for loop and the dictionnary's keys
     for i in available_challenges:
         print("{}. - {}".format(i,available_challenges[i]))
 
+    #the user enters a number, which is associated with a challenge
     choice = int(input('Enter the number of the chosen challenge: '))
+    while 1<=choice<=4:
+        choice = int(input('Invalid input, Enter the number of the chosen challenge: '))
     return choice
 
 
@@ -92,6 +96,8 @@ def choose_player(team : list)->int:
     for i in range(len(team)):
         print("{}. {} ({}) - {}".format(i+1,team[i]["name"], team[i]["profession"], team[i]["role"]))
     chosen_one = -1
+
+    #asking the user for a number between 1 and the size of the team
     while not chosen_one - 1 in range(len(team)):
         chosen_one = int(input("Enter the number of the chosen player: "))
 
@@ -103,6 +109,7 @@ def choose_difficulty()->int:
     :return: Integer corresponding to chosen difficulty
     """
     diff = -1
+    #asking the user for a number between 1 and 3
     while not 1 <= diff <= 3 :
         diff=int(input("\n1-Easy\n2-Standard\n3-Hard\n\nEnter the number of the chosen difficulty : "))
     return diff

@@ -1,3 +1,4 @@
+from final_challenge import treasure_room
 from utility_functions import *
 from logical_challenges import nim_game, battleship_game
 from math_challenges import (math_challenge_factorial, solve_linear_equation,
@@ -10,8 +11,9 @@ from playsound import playsound
 
 def game():
     introduction()
-    team=compose_equipe()
+    team=compose_team()
     diff=choose_difficulty()
+
     """Initialisation of the available_challenges dictionnary used in the challenges_menu function.
        The role of this dict is to allow the user to only
        try the challenges that are associated with the contained numbers."""
@@ -68,6 +70,7 @@ def game():
         print("\n\nYou lost!")
         if str(input("\nEnter R to try again: ")) == "R":
             game()
+
 
 
 
