@@ -66,9 +66,5 @@ Fère Pouras' Lair : Bord Foyard !
 - 4/01/2025 : Documentation is finalized, project is finished
 
 ## Task distribution
-- Olive / Oliver3rCar : Mathias C: implemented fère pourras' riddles, logical challenges and added sound effects. Redacted half of the documentation.
-- Pandadulol : Victor H: implemented chance and math challenges as well as the utility functions and the main. Redacted the other half of the documentation.
-
-#
-# Testing and validation
-## Test strategies
+- Olive / Oliver3rCar : Mathias C: Implemented fère pourras' riddles, logical challenges and added sound effects. Improved utility functions. Redacted half of the documentation. Difficulty selection.
+- Pandadulol : Victor H: Implemented chance and math challenges as well as the utility functions and the main. Redacted the other half of the documentation. Final challenge implementation.

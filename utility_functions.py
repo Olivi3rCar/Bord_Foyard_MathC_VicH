@@ -67,6 +67,11 @@ Please enter the number of players in your team (max 3) : "))
         team[0]["role"]="Leader"
     return team
 
+
+# TESTS
+# compose_team()
+
+
 """Next, the challenges_menu that will print the available challenges and ask the player to choose one."""
 
 def challenges_menu(available_challenges)->int:
