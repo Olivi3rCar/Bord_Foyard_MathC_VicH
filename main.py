@@ -39,14 +39,14 @@ def game():
         # The users choses which logical challenge they want to pick if they chose this category
         if  choosen_challenge == 2:
             log_chall_choice=int(input("Choose a challenge :\n1. - Nim Game\n2. - Battleship game\nEnter the number of the chosen challenge: "))-1
-            while 0<=log_chall_choice<=1:
+            while not(0<=log_chall_choice<=1):
                 log_chall_choice = int(input("INVALID INPUT\nChoose a challenge :\n1. - Nim Game\n2. - Battleship game\nEnter the number of the chosen challenge: ")) - 1
 
             if all_challenges[1][log_chall_choice](diff):
 
                 #Adds a key to the general count and to the chosen player's
                 keys += 1
-                team[player]["keys_wons"] += 1
+                team[player]["keys_won"] += 1
                 print('Congrats, you win a key!')
                 playsound(f"soundeffects/gamewon.wav")
             else:
@@ -58,7 +58,7 @@ def game():
         else:
             if rd.choice(all_challenges[choosen_challenge-1])(diff):
                 keys+=1
-                team[player]["keys_wons"]+=1
+                team[player]["keys_won"]+=1
                 print('Congrats, you win a key!')
                 playsound(f"soundeffects/gamewon.wav")
                 sleep(2)
@@ -67,9 +67,9 @@ def game():
                 print("Too bad! You lose, the key disappears before your eyes!\n")
                 sleep(2)
         if keys==1:
-            print("You have 1 key!\n")
+            print("You have 1 key!")
         else:
-            print("You have {} keys!\n".format(keys))
+            print("You have {} keys!".format(keys))
 
 
     if final_challenge.treasure_room(diff):
@@ -84,7 +84,7 @@ def game():
 
     # Displays the amount of keys each player won
     for i in range(len(team)):
-        print("{}. {} ({}) won {} keys".format(i + 1, team[i]["name"], team[i]["profession"], team[i]["role"],team[i]["keys_won"]))
+        print("\n{}. {} ({}) won {} keys".format(i + 1, team[i]["name"], team[i]["profession"],team[i]["keys_won"]))
         
     #asks the user if they want to play again
     if str(input("\nEnter R to try again: ")) == "R":

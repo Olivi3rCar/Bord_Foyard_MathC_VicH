@@ -60,8 +60,9 @@ def treasure_room(diff) -> bool:
 
         #Checking the user's answer
         if uppercase(answer) == clues_list[1]:
+            f.close()
             return True
         else:
             print("Wrong answer!\n")
-
+    f.close()
     return False

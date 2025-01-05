@@ -52,7 +52,7 @@ def roll_dice_game(diff) -> bool:
         player_dice= rd.randint(1,6),rd.randint(1,6)
         print(player_dice)
         if 6 in player_dice:
-            print("You win ! You take the key.")
+            print("You win !.")
             return True
         else:
             print("No 6 ! It's the master's turn.")
@@ -61,7 +61,7 @@ def roll_dice_game(diff) -> bool:
         master_dice = rd.randint(1,6),rd.randint(1,6)
         print(master_dice)
         if 6 in master_dice:
-            print("The game master has won, you lose the key.")
+            print("The game master has won.")
             return False
         else:
             print("No 6 ! It's the master's turn.")
@@ -69,5 +69,5 @@ def roll_dice_game(diff) -> bool:
         print(" You have {} attempts left.\n".format(5-diff-attempts))
 
     #If the number of tries is exceeded, the game ends in a draw and the key is lost
-    print("Nobody rolled a 6, the game ends in a draw! You lose the key.")
+    print("Nobody rolled a 6, the game ends in a draw!")
     return False

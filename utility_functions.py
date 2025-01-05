@@ -60,7 +60,7 @@ Please enter the number of players in your team (max 3) : "))
         else :
             # if we already have a leader, set current player as member
             team[i]["role"] = "Member"
-        team[i]["keys_wons"]=0
+        team[i]["keys_won"]=0
 
     """When there is no leader, the first player will be selected to be one"""
     if not v :
@@ -86,7 +86,7 @@ def challenges_menu(available_challenges)->int:
 
     #the user enters a number, which is associated with a challenge
     choice = int(input('Enter the number of the chosen challenge: '))
-    while 1<=choice<=4:
+    while not (1<=choice<=4):
         choice = int(input('Invalid input, Enter the number of the chosen challenge: '))
     return choice
 
